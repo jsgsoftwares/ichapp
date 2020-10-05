@@ -1,0 +1,4 @@
+http://voixbot.bot:8190/668803720/facebook
+
+{"object":"page","entry":[{"id":"194135691356528","time":1574001714876,"messaging":
+[{"sender":{"id":"1627997500630448"},"recipient":{"id":"194135691356528"},"timestamp":1574001709059,"message":{"mid":"m_02RbcSZESY1rtvZMyrQMFpuNNUU7quBaCzjBLxCssViBc3i4eSOk9Owe5M5GlXWtxd8hDK0YxAKt6_mQlZCQjg","text":"hola"}}]}]}
