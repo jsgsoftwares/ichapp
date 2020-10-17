@@ -21,6 +21,8 @@ class CreateIntegracioneswebhooksTable extends Migration
             $table->unsignedInteger('companie_id');
             $table->foreign('companie_id')->references('id')->on('companies');
             $table->string('phone')->nullable();
+            $table->string('pais_id')->nullable();
+            $table->string('phone_code')->nullable();
             $table->string('canal');
             $table->string('verify')->nullable();
             $table->string('mytoken');

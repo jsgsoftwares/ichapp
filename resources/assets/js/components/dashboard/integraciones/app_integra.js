@@ -2,6 +2,7 @@ import Vue from "vue";
 
 Vue.component("integraTelegram", require("./telegramComponent.vue"));
 Vue.component("integraFacebook", require("./facebookComponent.vue"));
+Vue.component("integraWaping", require("./wapingComponent.vue"));
 Vue.component(
   "dashintegracion_component",
   require("./DashboardContentIntegracionComponent")

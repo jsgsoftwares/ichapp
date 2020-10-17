@@ -1,13 +1,16 @@
 <template>
   <div>
-    <section class="pricing py-5 card_price" id="price">
+    <section class="pricing  " id="price" style="background-color:#5f62a9">
       <div class="container">
         <header class="section-header">
           <br />
-          <h3>Prices</h3>
-          <p>
-            La plataforma muticanal que simplifica y automatiza todo el servicio
-            de atención al cliente y mejorar su experiencia de usuario.
+          <br />
+          <br />
+          <h3 style="color:#fff">Prices</h3>
+          <p style="color:#fff">
+           
+            The multi-channel platform that simplifies and automates the entire service
+            customer service and improve your user experience.
           </p>
         </header>
         <div class="row">
@@ -19,46 +22,34 @@
                   Basico
                 </h5>
                 <h6 class="card-price text-center">
-                  $120<span class="period">/Mes</span>
+                  free<span class="period"></span>
                 </h6>
                 <hr />
                 <ul class="fa-ul">
                   <li>
-                    <span class="fa-li"></span><strong>2 Usuarios</strong>
+                    <span class="fa-li"></span><strong>2 Users</strong>
                   </li>
-                  <li><span class="fa-li"></span>3 Canales de la lista</li>
+                  <li><span class="fa-li"></span>2 Channels</li>
                   <ul>
                     <li class="text-muted">
-                      <span class="fa-li"></span>Facebook Messenger
+                      <span class="fa" style="color:green;"></span>Facebook Messenger
                     </li>
                     <li class="text-muted">
                       <span class="fa-li"></span>Telegram
                     </li>
-                    <li class="text-muted">
-                      <span class="fa-li"></span>Live chat
+                    <li class="text-muted" style=" text-decoration:line-through;">
+                      <span class="fa-li"></span>DialogFlow
                     </li>
-                    <li class="text-muted">
-                      <span class="fa-li"></span>Live chat
+    
+                    <li class="text-muted" style=" text-decoration:line-through;" >
+                      <span class="fa-li"></span>Whatsapp with waping
                     </li>
-                    <li class="text-muted">
-                      <span class="fa-li"></span>Twitter
-                    </li>
-                    <li class="text-muted">
-                      <span class="fa-li"></span>Instagram
-                    </li>
+      
                   </ul>
-                  <li>
-                    <span class="fa-li"></span>**No incluido whatsapp**<br />
-                    Este tiene un costo por linea de 100$ aplica costo por
-                    mensaje
-                  </li>
-                  <li>
-                    Mensajes Ilimitados( No aplica para whatsapp) Reportes
-                    Basicos
-                  </li>
+
                 </ul>
-                <a href="#" class="btn btn-block btn-primary text-uppercase"
-                  >Contactenos</a
+                <a href="/register" class="btn btn-block btn-primary text-uppercase"
+                  >Register</a
                 >
               </div>
             </div>
@@ -68,50 +59,43 @@
             <div class="card mb-5 mb-lg-0">
               <div class="card-body">
                 <h5 class="card-title text-muted text-uppercase text-center">
-                  Estandar
+                  Chat management
                 </h5>
                 <h6 class="card-price text-center">
-                  $250<span class="period">/Mes</span>
+                  $15
+                  <br/><span style="font-size:13px">per user/<strong>per month </strong></span>
+                  
+                  
                 </h6>
                 <hr />
                 <ul class="fa-ul">
                   <li>
-                    <span class="fa-li"></span><strong>5 Usuarios</strong>
+                    <span class="fa-li"></span><strong>Manage the chats of your messaging channels</strong>
                   </li>
-                  <li><span class="fa-li"></span>4 Canales de la lista</li>
+                  <li><span class="fa-li"></span>3 Canales</li>
                   <ul>
                     <li class="text-muted">
-                      <span class="fa-li"></span>Facebook Messenger
+                      <span class="fa" style="color:green;"></span>Facebook Messenger
                     </li>
                     <li class="text-muted">
                       <span class="fa-li"></span>Telegram
                     </li>
-                    <li class="text-muted">
-                      <span class="fa-li"></span>Live chat
+                    <li class="text-muted" >
+                      <span class="fa-li"></span>Dialogflow
                     </li>
-                    <li class="text-muted">
-                      <span class="fa-li"></span>Live chat
+    
+                    <li class="text-muted"  >
+                      <span class="fa-li"></span>Whatsapp with waping
+                       <strong>integration (30$/month)</strong>
                     </li>
-                    <li class="text-muted">
-                      <span class="fa-li"></span>Twitter
-                    </li>
-                    <li class="text-muted">
-                      <span class="fa-li"></span>Instagram
-                    </li>
+          
                   </ul>
-                  <li>
-                    <span class="fa-li"></span>**No incluido whatsapp**<br />
-                    Este tiene un costo por linea de 100$ aplica costo por
-                    mensaje
-                  </li>
-                  <li>
-                    Mensajes Ilimitados( No aplica para whatsapp) Reportes
-                    Basicos
-                  </li>
+
                 </ul>
-                <a href="#" class="btn btn-block btn-primary text-uppercase"
-                  >Contactenos</a
+                <a href="/register" class="btn btn-block btn-primary text-uppercase"
+                  >Register</a
                 >
+          
               </div>
             </div>
           </div>
@@ -121,50 +105,39 @@
               <div class="card mb-5 mb-lg-0">
                 <div class="card-body">
                   <h5 class="card-title text-muted text-uppercase text-center">
-                    Profesional
+                    Enterprise
                   </h5>
                   <h6 class="card-price text-center">
-                    $400<span class="period">/Mes</span>
+                    Custom<span class="period"></span>
                   </h6>
                   <hr />
                   <ul class="fa-ul">
-                    <li>
-                      <span class="fa-li"></span><strong>10 Usuarios</strong>
+
+                   <li><span class="fa-li"></span>For companies of all sizes</li>
+                  <ul>
+                    <li class="text-muted">
+                      <span class="fa" style="color:green;"></span>Facebook Messenger
                     </li>
-                    <li><span class="fa-li"></span>5 Canales de la lista</li>
-                    <ul>
-                      <li class="text-muted">
-                        <span class="fa-li"></span>Facebook Messenger
-                      </li>
-                      <li class="text-muted">
-                        <span class="fa-li"></span>Telegram
-                      </li>
-                      <li class="text-muted">
-                        <span class="fa-li"></span>Live chat
-                      </li>
-                      <li class="text-muted">
-                        <span class="fa-li"></span>Live chat
-                      </li>
-                      <li class="text-muted">
-                        <span class="fa-li"></span>Twitter
-                      </li>
-                      <li class="text-muted">
-                        <span class="fa-li"></span>Instagram
-                      </li>
-                    </ul>
-                    <li>
-                      <span class="fa-li"></span>**No incluido whatsapp**<br />
-                      Este tiene un costo por linea de 100$ aplica costo por
-                      mensaje
+                    <li class="text-muted">
+                      <span class="fa-li"></span>Telegram
                     </li>
-                    <li>
-                      Mensajes Ilimitados( No aplica para whatsapp) Reportes
-                      Basicos
+                    <li class="text-muted" style=" text-decoration:line-through;">
+                      <span class="fa-li"></span>Dialogflow
                     </li>
+    
+                    <li class="text-muted"  >
+                      <span class="fa-li"></span>Whatsapp with waping
+                    </li>
+
+                    <li class="text-muted">
+                      <span class="fa-li"></span><strong>Dedicated support</strong>
+                  </li> 
                   </ul>
-                  <a href="#" class="btn btn-block btn-primary text-uppercase"
-                    >Contactenos</a
-                  >
+
+                </ul>
+                <a href="/#contact" class="btn btn-block btn-primary text-uppercase"
+                  >Contact</a
+                >
                 </div>
               </div>
             </div>

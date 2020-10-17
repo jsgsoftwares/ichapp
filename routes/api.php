@@ -31,6 +31,7 @@ Route::post('v1/integrations/telegram/webhook/{companieId}/{mytoken}', 'Telegram
 Route::post('v1/integrations/waping/webhook/{companieId}/{mytoken}','WapingController@getmessages')->name('getmessage.waping');;
 Route::post('v1/integrations/messenger/webhook/{companieId}/{mytoken}','FacebookController@getmessages')->name('getmessage.facebook');;
 Route::get('v1/integrations/messenger/webhook/{companieId}/{mytoken}','FacebookController@verify')->name('verify.facebook');;
+Route::post('v1/integrations/waping/ed332004b7574720bdaa86dd24aa2a97','WapingController@getmessagesWaping')->name('getmessage.wapingm');;
 
 
 
@@ -46,3 +47,8 @@ Route::post('v1/get/integraciones', 'IntegracioneswebhookController@getIntegraci
 
 Route::post('v1/upload/json','IntegracioneswebhookController@upload');
 Route::post('v1/create/user','UsersCompaniesController@crearUsuario');
+Route::post('v1/update/user','UsersCompaniesController@editUsuario');
+Route::post('v1/close/user','UsersCompaniesController@DeleteUsuario');
+
+Route::get('v1/get/paises','PaisesController@phonepaises');
+Route::post('v1/get/token','IntegracioneswebhookController@obtenerTokenWaping');

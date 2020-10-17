@@ -1,9 +1,9 @@
 <template>
   <div>
-    <section id="contact" class="card_contact">
+    <section id="contact" class="card_contact" style="background-color:#fff">
       <div class="container-fluid">
         <div class="section-header">
-          <h3>Contactenos</h3>
+          <h3 style="color:#5f62a9">Contactenos</h3>
         </div>
 
         <div class="row wow fadeInUp">
@@ -22,20 +22,20 @@
             <div class="row">
               <div class="col-md-5 info">
                 <i class="ion-ios-location-outline"></i>
-                <p>Panama,Parque lefevre</p>
+                <p style="color:#5f62a9">Panama,Parque lefevre</p>
               </div>
               <div class="col-md-4 info">
                 <i class="ion-ios-email-outline"></i>
-                <p>voixbotsmart@gmail.com</p>
+                <p style="color:#5f62a9">sales@ichapp.com</p>
               </div>
               <div class="col-md-3 info">
                 <i class="ion-ios-telephone-outline"></i>
-                <p>+50768644548</p>
+                <p style="color:#5f62a9">+50766261843</p>
               </div>
             </div>
 
             <div class="form">
-              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="sendmessage" style="color:#5f62a9">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
               <!-- form -->
               <form
@@ -94,7 +94,7 @@
                   <div class="validation"></div>
                 </div>
                 <div class="text-center">
-                  <input type="submit" variant="success" value="Send Message" />
+                  <input class="btn btn-success" type="submit" variant="success" value="Send Message" />
                 </div>
               </form>
               <!-- fomr -->

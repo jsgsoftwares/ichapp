@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
         $this->call(IntegrationsTableSeeder::class);
         $this->call(IntegrationswebhookTableSeeder::class);
         $this->call(FlujoModuleTableSeeder::class);
+        $this->call(WapingTokensTableSeeder::class);
         
          
     }

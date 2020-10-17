@@ -24,6 +24,7 @@ class CreateMessagesTable extends Migration
             //message
             $table->text('content');
             $table->text('tipo');
+            $table->integer('is_in')->default(1);
             $table->BigInteger('session_id')->nullable();
             $table->timestamps();
 

@@ -16,6 +16,7 @@ class CreateRolsTable extends Migration
         Schema::create('rols', function (Blueprint $table) {
             $table->increments('id');
             $table->text('detalle');
+            $table->integer('enabled');
             $table->timestamps();
         });
     }

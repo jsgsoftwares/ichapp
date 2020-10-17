@@ -38,7 +38,7 @@
             <table class="table data-list-view">
               <thead>
                 <tr>
-                  <th></th>
+                  <th>STATE</th>
                   <th>NAME</th>
                   <th>USUARIO</th>
                   <th>ROL</th>
@@ -53,6 +53,8 @@
                   :rol="user.rol"
                   :rol_id="user.rol_id"
                   :email="user.email"
+                  :estado_user="user.state"
+                  :creador="user.creator"
                   :id="user.id"
                 />
               </tbody>
@@ -90,6 +92,7 @@
             <span class="badge badge-warning">
               Important note: each added user has an additional cost
             </span>
+            <p><span class="badge badge-warning">If you add a user and want to delete it after the first 5 days of the month, you must wait until the next invoice closing.</span></p>
             <div class="custom-control custom-checkbox">
               <b-form-checkbox
                 align="right"
@@ -186,7 +189,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    Select rol
+                    {{Select_rol}}
                   </button>
                   <div
                     class="dropdown-menu"
@@ -195,10 +198,10 @@
                     <a
                       class="dropdown-item"
                       href="#"
-                      v-for="rol in roles"
-                      :key="rol.id"
-                      @click="rolselect(rol.id)"
-                      >{{ rol.detalle }}</a
+                      v-for="rol_user in roles_dispacht"
+                      :key="rol_user.id"
+                      @click="rolselect(rol_user.id)"
+                      >{{ rol_user.detalle }}</a
                     >
                   </div>
                 </div>
@@ -225,7 +228,7 @@
               @click="validacion()"
               class="btn btn-primary"
             >
-              Send message
+              Create
             </button>
           </div>
         </div>
@@ -239,15 +242,16 @@ export default {
   data() {
     return {
       errors: [],
-      passErr:[],
-      passErrRe:[],
+      passErr: [],
+      passErrRe: [],
       checked: false,
       companieName: "",
       username: "",
       name: "",
       password: "",
       repassword: "",
-      role:0,
+      Select_rol: "Select rol",
+      role: 0,
       state: {
         activar: true,
       },
@@ -263,105 +267,103 @@ export default {
       });
   },
   methods: {
-    validarPass(){
-      this.passErr=[]
-      if(this.password.length<6){
-          this.passErr.push("Your password should be 6 to 10 characters in length and can contain letters (A-Z, a-z), numbers (0-9) ");
+    validarPass() {
+      this.passErr = [];
+      if (this.password.length < 6) {
+        this.passErr.push(
+          "Your password should be 6 to 10 characters in length and can contain letters (A-Z, a-z), numbers (0-9) "
+        );
+      } else {
+        this.passErr = [];
       }
-      else {
-        this.passErr=[]
-      }
-   
     },
-    validarPassMatch(){
-       this.passErrRe=[]
-      if(this.password != this.repassword){
-          this.passErrRe.push("Your password no match ");
-          
+    validarPassMatch() {
+      this.passErrRe = [];
+      if (this.password != this.repassword) {
+        this.passErrRe.push("Your password no match ");
+      } else {
+        this.passErrRe = [];
       }
-      else {
-        this.passErrRe=[]
-      }
-   
     },
     rolselect(id) {
       this.role = id;
+      this.$store.state.roles.map((res) => {
+        if (res.id == id) {
+          this.Select_rol = res.detalle;
+        }
+      });
     },
     validacion() {
-      
-      this.errors=[];
-        if(this.username.includes("@")
-        ||this.username.includes("$")
-        ||this.username.includes("#")
-        ||this.username.includes("&")
-        ||this.username.includes("+")
-        ||this.username.includes("/")
-        ||this.username.includes(" ")
-        ||this.username.length==0
-        ){
-          this.errors.push("Please username can only contain letters and numbers ")
- 
-      }else {
-        if(this.name.length>3){
-            if (this.password == this.repassword) {
-              if(this.password.length>5){
-                if (this.role==0){
-                
-                  this.errors.push("Please select the rol.");
-                }else{
-                      const params = {
-                      username:`${this.username}@${this.$store.state.companie.name}.com`,
-                      name: this.name,
-                      rol_id: this.role,
-                      password: this.password,
-                      companie_id: this.$store.state.companie.id,
-                    };
-                    this.$store
-                    .dispatch("PostCreateUser", params).then(()=>{
-                      $("#exampleModal").modal('hide');
-                      this.$store.dispatch("getUserCompanie_dash", this.$store.state.user_id);
-                      this.$swal("Success", "User create successfully", "success");  
+      this.errors = [];
+      if (
+        this.username.includes("@") ||
+        this.username.includes("$") ||
+        this.username.includes("#") ||
+        this.username.includes("&") ||
+        this.username.includes("+") ||
+        this.username.includes("/") ||
+        this.username.includes(" ") ||
+        this.username.length == 0
+      ) {
+        this.errors.push(
+          "Please username can only contain letters and numbers "
+        );
+      } else {
+        if (this.name.length > 3) {
+          if (this.password == this.repassword) {
+            if (this.password.length > 5) {
+              if (this.role == 0) {
+                this.errors.push("Please select the rol.");
+              } else {
+                const params = {
+                  username: `${this.username}@${this.$store.state.companie.name}.com`,
+                  name: this.name,
+                  rol_id: this.role,
+                  password: this.password,
+                  companie_id: this.$store.state.companie.id,
+                };
+                this.$store.dispatch("PostCreateUser", params).then(() => {
+                  $("#exampleModal").modal("hide");
+                  this.$store
+                    .dispatch("getUserCompanie_dash", this.$store.state.user_id)
+                    .then(() => {
+                      this.$swal(
+                        "Success",
+                        "User create successfully",
+                        "success"
+                      );
                       this.$store.dispatch("setpaginas", "usuarios");
-                    })
-                 
-                  
-                }
-        
-              }else {
-              this.errors.push("Your password should be 6 to 10 characters in length and can contain letters (A-Z, a-z), numbers (0-9) ");
+                    });
+                });
+              }
+            } else {
+              this.errors.push(
+                "Your password should be 6 to 10 characters in length and can contain letters (A-Z, a-z), numbers (0-9) "
+              );
             }
-
-            } 
-            else {
-              this.errors.push("the password no match");
-            }
-
-        }
-        else {
+          } else {
+            this.errors.push("the password no match");
+          }
+        } else {
           this.errors.push("the name must have more than three letters");
         }
-    }
-
+      }
     },
     activar_user() {
       this.state.activar = this.checked;
     },
-    allLetter(inputtxt)
-    {
-    var letters = /^[A-Za-z]+$/;
-    if(inputtxt.value.match(letters))
-      {
+    allLetter(inputtxt) {
+      var letters = /^[A-Za-z]+$/;
+      if (inputtxt.value.match(letters)) {
         return true;
+      } else {
+        alert("message");
+        return false;
       }
-    else
-      {
-      alert("message");
-      return false;
-      }
-    }
+    },
   },
   computed: {
-    roles() {
+    roles_dispacht() {
       return this.$store.state.roles;
     },
     acepto() {

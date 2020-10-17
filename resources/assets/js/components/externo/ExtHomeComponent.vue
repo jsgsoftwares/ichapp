@@ -11,6 +11,7 @@
       <canales_component class="card_style h-100"></canales_component>
       <price_component class="card_style h-100"></price_component>
       <contactenos_component class="card_style h-100"></contactenos_component>
+      <private_component class="card_style h-100"></private_component>
     </main>
   </div>
   <!-- #intro -->

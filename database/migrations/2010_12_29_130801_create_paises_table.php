@@ -17,6 +17,10 @@ class CreatePaisesTable extends Migration
             $table->increments('id');
             $table->string('iso');
             $table->string('nombre');
+            $table->string('nicename', 80);
+            $table->char('iso3', 3  )->nullable();
+            $table->smallinteger('numcode')->nullable();
+            $table->integer('phonecode');
             $table->timestamps();
         });
     }

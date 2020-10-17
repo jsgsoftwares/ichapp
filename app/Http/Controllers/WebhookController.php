@@ -52,15 +52,16 @@ class WebhookController extends Controller
        ->select('sessions.flujo_id')
        ->where('users.chat_id', $from_id)
        ->where('sessions.idkey',$date)
+       ->where('sessions.mytoken',$mytoken)
        ->where('sessions.state_id',2)
        ->first();
-     
+      
 
         if($session->flujo_id==1){
        
             $b = new ControlController();
         
-            $b->envio($canal,$from_id,$mensaje,$getkeyMensaje,$proveedor,$tipo);
+            $b->envio($canal,$from_id,$mensaje,$getkeyMensaje,$proveedor,$tipo,$mytoken,1);
         }elseif($session->flujo_id==2){
        
             $b = new FlujomoduleController();

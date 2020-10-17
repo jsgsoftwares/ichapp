@@ -30,12 +30,15 @@ class MessageObserver
             ->where('sessions.id',$message->session_id)
             ->where('sessions.state_id',2)
             ->first();
+
            $conversation=conversation::where('session_id',$message->session_id)
                             ->first();
+            $session_de_usuario=session::where('id',$message->session_id)->first();
+            
             if($conversation)// SI YA TIENE UNA SESSION CREADA EN CONVERSATION
             {
                 $this->save_conversation_api($message,$id_chat->id);
-                $this->respuesta_red($message,$id_chat->id);
+                $this->respuesta_red($message,$id_chat->id,$session_de_usuario);
                 
             }
             else // SI no TIENE UNA SESSION CREADA EN CONVERSATION
@@ -146,7 +149,7 @@ class MessageObserver
         
     }
 
-    public function respuesta_red($message,$user_id)
+    public function respuesta_red($message,$user_id,$session_de_usuario)
     {
         
 
@@ -161,13 +164,13 @@ class MessageObserver
             $usuario_response= DB::table('sessions')
             ->leftJoin('users', 'sessions.from_id', '=', 'users.id')
             ->Join('canales', 'canales.id', '=', 'users.canal_id')
-            ->select( 'users.chat_id','canales.detalle as canal')
+            ->select( 'users.chat_id','canales.detalle as canal','sessions.mytoken')
             ->where('sessions.id',$message->session_id)
             ->where('sessions.state_id',2)
             ->first();
            
             $b = new ControlController();
-            $b->envio($usuario_response->canal,$usuario_response->chat_id,$message->content,$message->id,'',$message->tipo);
+            $b->envio($usuario_response->canal,$usuario_response->chat_id,$message->content,$message->id,'',$message->tipo,$usuario_response->mytoken,$message->is_in);
     
         }
         

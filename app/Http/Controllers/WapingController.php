@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp;
 use Storage;
+use App\Integracioneswebhook;
 class WapingController extends Controller
 {
     
     public function entrada(Request $request){
+      
+
       
         $pos = strpos($request, "{");
         $cadena=utf8_encode(substr($request,$pos));
@@ -49,6 +52,7 @@ class WapingController extends Controller
     
     public function sendMessage($token,$respuesta,$para,$idmensaje,$tip){
 
+   
           if($tip=="texto"){
               $tipoMen="text";
               $body=[
@@ -63,7 +67,7 @@ class WapingController extends Controller
             }
             
             $tokenwhatsapp=env('WAPING');
-                
+          
             $json=[
                 "token"=>$token->token,
                 "source"=>$token->phone,
@@ -73,10 +77,10 @@ class WapingController extends Controller
                 "body"=>$body
 
             ];
-          
+            
                 //Storage::disk('local')->put(date("YmdHi").'_mmm.txt', json_encode($json));
           $curl = curl_init();
-
+            dd(json_encode($json));
           curl_setopt_array($curl, array(
           CURLOPT_URL => "http://waping.es/api/send",
           CURLOPT_RETURNTRANSFER => true,
@@ -148,11 +152,16 @@ class WapingController extends Controller
 
     public function getmessages($companieId,$mytoken,Request $request){
       
+
+      
         $pos = strpos($request, "{");
         $cadena=utf8_encode(substr($request,$pos));
         $decodificacion=json_decode($cadena);
         $request=($decodificacion);
         $status=$request->status;
+
+
+       
         $id=$request->id;
         $type=$request->message->type;
         $date=$request->message->date;
@@ -161,7 +170,14 @@ class WapingController extends Controller
         $fromMe=$request->message->fromMe;
         $name=$request->message->from;
         $tipo=$request->message->type;
-        
+
+
+
+       // $integracion=Integracioneswebhook::where('phone',$to)->first();
+
+
+
+       
         if(strlen($name)>0)
         {
           $name=$from;
@@ -184,5 +200,56 @@ class WapingController extends Controller
         $URL=env('APP_URL').'668803720/webhook';
         $chat->verificar_status($URL, $id,$name,$from,$to,$date,$mensaje,'whatsapp',$tipo,'waping',$mytoken,$companieId);
     }
+    public function getmessagesWaping(Request $request){
+
+
+      
+        $pos = strpos($request, "{");
+        $cadena=utf8_encode(substr($request,$pos));
+        $decodificacion=json_decode($cadena);
+        $request=($decodificacion);
+        $status=$request->status;
+
+
+        
+        $id=$request->id;
+        $type=$request->message->type;
+        $date=$request->message->date;
+        $from=$request->message->from;
+        $to=$request->message->to;
+        $fromMe=$request->message->fromMe;
+        $name=$request->message->from;
+        $tipo=$request->message->type;
+
+
+     
+        $integracion=Integracioneswebhook::where('phone',$to)->first();
+
+        
+        
+      if($integracion->enabled && $integracion->start){
+            if(strlen($name)>0){
+              $name=$from;
+            }
+            if($type=="text" || $type=="chat"){
+                $mensaje=$request->message->body->text;
+                $tipo="texto";
+            }
+            else{
+              $mensaje=$request->message->body->url;
+            }
+            
+            
+            $mensaje=$this->eliminar_acentos($mensaje);
+
+            
+        
+            $chat = new ChatController();
+            $URL=env('APP_URL').'668803720/webhook';
+            $chat->verificar_status($URL, $id,$name,$from,$to,$date,$mensaje,'whatsapp',$tipo,'waping',$integracion->mytoken,$integracion->companie_id);
+        
+      }
+      }
+      
     
 }

@@ -15,7 +15,7 @@ class PaisesController extends Controller
         $contactId=$request->contact_id;
         if(isset($userId))
         {
-            return Paises::select('id as value','nombre as text')
+            return Paises::select('id as value','nombre as text','phonecode')
             ->get();
 
         }
@@ -24,4 +24,9 @@ class PaisesController extends Controller
 
 
     }
+
+    public function phonepaises(){
+        return Paises::select('id as value','nombre as text','phonecode')->get();
+    }
+
 }

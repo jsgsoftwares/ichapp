@@ -24,53 +24,56 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="voixbotweb/img/favicon.png" rel="icon">
-  <link href="voixbotweb/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="ichapp/img/favicon.png" rel="icon">
+  <link href="ichapp/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="voixbotweb/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="ichapp/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="voixbotweb/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="voixbotweb/lib/animate/animate.min.css" rel="stylesheet">
-  <link href="voixbotweb/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="voixbotweb/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="voixbotweb/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="ichapp/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="ichapp/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="ichapp/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="ichapp/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="ichapp/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="voixbotweb/css/style.css" rel="stylesheet">
+  <link href="ichapp/css/style.css" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('voixbotweb/css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('voixbotweb/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('voixbotweb/css/price.css') }}" rel="stylesheet">
+    <link href="{{ asset('ichapp/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('ichapp/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('ichapp/css/price.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="color: #5f62a9;">
     <div id="app">
     <header id="header" class="fixed-top">
     <div class="container">
 
       <div class="logo float-left">
-        <a href="#intro" class="scrollto"><img src="voixbotweb/img/logo.png" alt="" class="img-fluid"></a>
+        <a href="#intro" class="scrollto"><img src="ichapp/img/logo.png" alt="" class="img-fluid"></a>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
         @guest
           <ul>
-            <li class="active"><a href="#intro">Home</a></li>
+            <li class="active"><a href="#intro" style="color: 5f62a9;">Home</a></li>
           <!--  <li><a href="#about">Quienes somos</a></li> -->
-            <li><a href="#services">{{__('Producto')}}</a></li>
-            <li><a href="#team">{{__('Canales')}}</a></li>
-            <li><a href="#price">{{__('Precios')}}</a></li>
-            <li><a href="#contact">{{__('Contactenos')}}</a></li>
+            <li><a href="#services" style="color: #5f62a9;">{{__('Products')}}</a></li>
+            <li><a href="#team" style="color: #5f62a9;">{{__('Integrations')}}</a></li>
+            <li><a href="#price" style="color: #5f62a9;">{{__('Pricing')}}</a></li>
+            <li><a href="#contact" style="color: #5f62a9;">{{__('Contact')}}</a></li>
+            
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
+              <span class="badge badge-primary" ><a class="nav-link button" style="color:#ffff;" href="{{ route('login') }}">{{ __('LOGIN') }}
+              </a><span>
           </li>
+          <li  style="color: transparent;"> . </li>
           @if (Route::has('register'))
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('register') }}">{{ __('REGISTER') }}</a>
+              <li class="nav-item ml-0" >
+                <span class="badge badge-primary" ><a class="nav-link button" style="color:#ffff;" href="{{ route('register') }}">{{ __('REGISTER') }}</a><span>
               </li>
           @endif
           </ul>
@@ -128,19 +131,19 @@
   <!--==========================
     Intro Section
   ============================-->
-  <script src="voixbotweb/lib/jquery/jquery.min.js"></script>
-  <script src="voixbotweb/lib/jquery/jquery-migrate.min.js"></script>
-  <script src="voixbotweb/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="voixbotweb/lib/easing/easing.min.js"></script>
-  <script src="voixbotweb/lib/mobile-nav/mobile-nav.js"></script>
-  <script src="voixbotweb/lib/wow/wow.min.js"></script>
-  <script src="voixbotweb/lib/waypoints/waypoints.min.js"></script>
-  <script src="voixbotweb/lib/counterup/counterup.min.js"></script>
-  <script src="voixbotweb/lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="voixbotweb/lib/isotope/isotope.pkgd.min.js"></script>
-  <script src="voixbotweb/lib/lightbox/js/lightbox.min.js"></script>
+  <script src="ichapp/lib/jquery/jquery.min.js"></script>
+  <script src="ichapp/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="ichapp/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="ichapp/lib/easing/easing.min.js"></script>
+  <script src="ichapp/lib/mobile-nav/mobile-nav.js"></script>
+  <script src="ichapp/lib/wow/wow.min.js"></script>
+  <script src="ichapp/lib/waypoints/waypoints.min.js"></script>
+  <script src="ichapp/lib/counterup/counterup.min.js"></script>
+  <script src="ichapp/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="ichapp/lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="ichapp/lib/lightbox/js/lightbox.min.js"></script>
  <!--  <script src="contactform/contactform.js"></script> -->
-  <script src="voixbotweb/js/main.js"></script>
+  <script src="ichapp/js/main.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -75,7 +75,11 @@ export default {
             this.$store.dispatch("setpaginas", "integraFacebook");
           } else if (this.state.canal == 7) {
             this.$store.dispatch("setpaginas", "AIDialogflow");
+          } else if(this.state.canal==3){
+            
+             this.$store.dispatch("setpaginas", "integraWaping");
           }
+          
         });
     },
     habilitarcanal() {

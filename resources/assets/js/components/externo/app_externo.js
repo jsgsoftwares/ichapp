@@ -5,5 +5,6 @@ Vue.component("service_component", require("./ExtserviceComponent"));
 Vue.component("canales_component", require("./ExtcanalesComponent"));
 Vue.component("price_component", require("./ExtPriceComponent"));
 Vue.component("contactenos_component", require("./extContactenosComponent"));
+Vue.component("private_component", require("./ExtprivateComponent"));
 
 export default new Vue({});

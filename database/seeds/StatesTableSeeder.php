@@ -32,6 +32,13 @@ class StatesTableSeeder extends Seeder
         State::create([
             'detalle'=>'transfer',
         ]);
+        State::create([
+            'detalle'=>'Pending close',
+        ]);
+        State::create([
+            'detalle'=>'closed',
+        ]);
+
 
 
     }

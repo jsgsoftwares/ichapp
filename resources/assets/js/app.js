@@ -5,7 +5,7 @@
  */
 
 require("./bootstrap");
-
+import multiselect from 'vue-multiselect'
 import Vue from "vue";
 import store from "./store";
 import dashboard_store from "./dashboard_store";
@@ -29,7 +29,7 @@ import VueSweetalert2 from "vue-sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 
 Vue.use(VueClipboard);
-
+Vue.use(multiselect);
 Vue.use(VueGoogleCharts);
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);

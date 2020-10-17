@@ -14,27 +14,33 @@ class RolesTableSeeder extends Seeder
         Rol::create(
             [
                 "detalle"=>"SuperAdmin",
+                "enabled"=>0,
             ]);
         Rol::create(
             [
                 "detalle"=>"Admin",
+                "enabled"=>1,
             ]);
         Rol::create(
             [
                 "detalle"=>"TeamLeader",
+                "enabled"=>0,
             ]);
 
         Rol::create(
             [
                 "detalle"=>"Leader",
+                "enabled"=>0,
             ]);
         Rol::create(
             [
                 "detalle"=>"Agent",
+                "enabled"=>1,
             ]);
         Rol::create(
             [
                 "detalle"=>"user",
+                "enabled"=>0,
             ]);
     }
 }

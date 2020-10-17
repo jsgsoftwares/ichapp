@@ -170,5 +170,6 @@ Route::get('storage/{filename}', function ($filename)
 });
 
 Route::get('get/usuarios/companie/{user_id}','UsersCompaniesController@getUsers');
+Route::get('get/usuario/{user_id}','UsersCompaniesController@obtenerUsuario');
 Route::get('get/companie/{user_id}','UsersCompaniesController@getcompanie');
 Route::get('get/rol','UsersCompaniesController@getRoles');

@@ -116,6 +116,7 @@ class MessageController extends Controller
         $message->content =  $request->content;
         $message->session_id =  $setsession;
         $message->tipo=$request->tipo;
+        $message->is_in=0;
         $saved = $message->save();
         //Storage::disk('local')->put(date("YmdHi").'_tipomensajes9.txt', ($message->tipo));
         $data=[];

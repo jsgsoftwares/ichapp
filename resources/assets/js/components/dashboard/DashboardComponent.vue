@@ -4,9 +4,7 @@
 
     <dashmenumain_component />
 
-    <keep-alive>
-      <component v-bind:is="currentView"> </component>
-    </keep-alive>
+    <component v-bind:is="currentView"> </component>
 
     <dashboardfooter_component />
   </div>
@@ -49,8 +47,14 @@ export default {
     integraFacebook: {
       template: "<integraFacebook/>",
     },
+    integraWaping:{
+      template:"<integraWaping/>",
+    },
     aidialogflow: {
       template: "<AIDialogflow/>",
+    },
+    edituser: {
+      template: "<dashusuariostablaedit_component/>",
     },
   },
   mounted() {

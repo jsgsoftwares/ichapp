@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('state_id');
             $table->foreign('state_id')->references('id')->on('states');
             $table->integer('enabled')->default('1');
+            $table->integer('creator')->default('0');
             $table->unsignedInteger('companie_id');
             $table->foreign('companie_id')->references('id')->on('companies');
             $table->integer('inmessage')->default('0');

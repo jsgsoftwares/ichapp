@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Integracioneswebhook;
 use App\Integracionbotflow;
 use App\Companie;
+use App\wapingtoken;
 use App\User;
 use Illuminate\Http\UploadedFile;
 use Telegram\Bot\Api;
@@ -33,6 +34,7 @@ class IntegracioneswebhookController extends Controller
             $integra->verify=$request->verify;
             $integra->mytoken=str_random(50);
             $integra->createBy=$request->user_id;
+            $integra->start=0;
             $integra->save();
         }
      //cambiar
@@ -199,23 +201,71 @@ class IntegracioneswebhookController extends Controller
 
     }
     function UpdateTokenWaping(Request $request){
+        $url="";
         $usuario=User::where('id',$request->user_id)->first();
-      
-        Integracioneswebhook::where('companie_id',$usuario->companie_id)
-                            ->where( 'canal',3)
-                            ->update([
-                                'token'=>$request->token,
-                                'enabled'=>$request->enabled,
-                                'phone'=>$request->phone
-                                    ]); 
-        $integra=Integracioneswebhook::where('companie_id',$usuario->companie_id)
-                            ->where('token',$request->token)
-                            ->where( 'canal',3)
-                            ->first();
+        $companie=Companie::where('id',$usuario->companie_id)->first();
+        $status="";
+        $integracion_webhook=Integracioneswebhook::where('companie_id',$usuario->companie_id)
+        ->where('canal',3)
+        ->first();
+        if($integracion_webhook){
+            Integracioneswebhook::where('companie_id',$usuario->companie_id)
+                ->where( 'canal',3)
+                ->update([
+                    'enabled'=>$request->enabled,
+                    'phone'=>$request->phone,
+                    'pais_id'=>$request->pais_id,
+                    'start'=>$request->start,
+                    'phone_code'=>$request->phone_code
+                    ]); 
+            $integra=Integracioneswebhook::where('companie_id',$usuario->companie_id)
+                ->where('companie_id',$usuario->companie_id)
+                ->where( 'canal',3)
+                ->first();
+            $url=env('APP_URL').'/api/v1/integrations/messenger/webhook/'.$integra->companie_id.'/'.$integra->mytoken;
+            $status="Update";
+        }
+        else{
+
+            $waping=wapingtoken::where('companie_id',$companie->id)->first();
+            $integra=new Integracioneswebhook();
+            $integra->enabled=1;
+            $integra->companie_id=$companie->id;
+            $integra->phone=$request->phone;
+            $integra->phone_code=$request->phone_code;
+            $integra->pais_id=$request->pais_id;
+            if($waping){
+                
+                $integra->token=$waping->token;
+            
+            }
+            else{
+                $wapingtoken=wapingtoken::where('companie_id',1)->where('disponible',1)->where('enabled',1)->first();
+                
+                $integra->token=$wapingtoken->token;
+                wapingtoken::where('id',$wapingtoken->id)
+                ->update([
+                    'disponible'=>0,
+                    'companie_id'=>$companie->id,
+                    ]);
+               
+            }
+
+            $integra->canal=3;
+            $integra->verify="";
+            $integra->start=$request->start;
+            $integra->mytoken=str_random(50);
+            $integra->createBy=$request->user_id;
+            $integra->save();
+            $status="create";
+            $url=env('APP_URL').'/api/v1/integrations/messenger/webhook/'.$integra->companie_id.'/'.$integra->mytoken;
+        
+        }
 
         //cambiar
         $json=[
-            "status"=>"success"
+            "status"=>$status,
+            "webhook"=>$url
         ];
         return $json;
     }
@@ -228,7 +278,7 @@ class IntegracioneswebhookController extends Controller
         $integracion_telegram=Integracioneswebhook::where('companie_id',$usuario->companie_id)
         ->where('canal',2)
         ->first(); 
-        $integracion_whatsapp=Integracioneswebhook::where('companie_id',$usuario->companie_id)
+        $integracion_waping=Integracioneswebhook::where('companie_id',$usuario->companie_id)
         ->where('canal',3)
         ->first(); 
         //FACEBOOK
@@ -261,7 +311,7 @@ class IntegracioneswebhookController extends Controller
         ->first(); 
         $json=[
             "telegram"=>$integracion_telegram,
-            "whatsapp"=>$integracion_whatsapp, 
+            "waping"=>$integracion_waping, 
             "facebook"=>$integracion_facebook,
             "twitter"=>$integracion_twitter,
             "instagra,"=>$integracion_instagram,
@@ -285,5 +335,30 @@ class IntegracioneswebhookController extends Controller
                 ];
                 return $json;
     }
+    function obtenerTokenWaping(Request $request){
+
+       
+
+     
+            $numero = explode("@", str_replace('"','',$request->numero)); 
+        
+
+        $integracion_webhook=Integracioneswebhook::where('phone_code',$numero[0])->first();
+        if($integracion_webhook){
+                $integracion_=[
+                    "id"=>$integracion_webhook->id,
+                    "token"=>$integracion_webhook->token,
+                    "enabled"=>$integracion_webhook->enabled,
+                    "mytoken"=>$integracion_webhook->mytoken,
+
+                ];
+         }else{
+            $integracion_=[
+                "error"=>"no found token"];
+         }
+        return $integracion_;
+    }
+    
+
 
 }

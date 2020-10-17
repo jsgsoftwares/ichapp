@@ -35,9 +35,14 @@ export default new Vuex.Store({
     facebook_callback_ul: "",
     companie: [],
     roles: [],
+    userxid: [],
+    user_companie: [],
   },
 
   mutations: {
+    set_userxid(state, user) {
+      state.userxid = user;
+    },
     set_roles(state, roles) {
       state.roles = roles;
     },
@@ -163,6 +168,17 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    getuserporid(context, userId) {
+      return axios
+        .get(`/get/usuario/${userId}`)
+        .then((response) => {
+          //console.log("response", response.data);
+          context.commit("set_userxid", response.data);
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    },
     getRols_dash(context) {
       return axios.get(`/get/rol`).then((response) => {
         //console.log("response", response.data);
@@ -286,6 +302,16 @@ export default new Vuex.Store({
         });
     },
     //INTEGRACIONES
+    PostUpdatewaping(context, parametros) {
+      return axios
+        .post("/api/update/waping", parametros)
+        .then((response) => {
+          // console.log(response);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    },
     PostUpdateTelegram(context, parametros) {
       return axios
         .post("/api/update/telegram", parametros)
@@ -328,6 +354,27 @@ export default new Vuex.Store({
           console.log(error.response);
         });
     },
+    PostUpdateUser(context, parametros) {
+      return axios
+        .post("/api/v1/update/user", parametros)
+        .then((response) => {
+          // context.commit("getUserCompanie_dash", this.state.user_id);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    },
+    PostDeleteUser(context, parametros) {
+      return axios
+        .post("/api/v1/close/user", parametros)
+        .then((response) => {
+          // context.commit("getUserCompanie_dash", this.state.user_id);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    },
+
     //INTEGRACIONES
     PostLogout(context) {
       return axios

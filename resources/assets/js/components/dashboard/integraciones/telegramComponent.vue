@@ -69,6 +69,7 @@
                     size="sm"
                     :disabled="btn_stop"
                     variant="outline-danger"
+                    @click="detener()"
                   >
                     Stop
                   </b-button>

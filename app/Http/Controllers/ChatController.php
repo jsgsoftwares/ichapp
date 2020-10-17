@@ -57,7 +57,7 @@ class ChatController extends Controller
             $clientes->chat_id = $from_id;
             $clientes->canal_id = $tipo_canal->id;
             $clientes->name = $nombre;
-            $clientes->email = $from_id.'@voixbot.com';
+            $clientes->email = $from_id.'@ichapp.com';
             $clientes->password=bcrypt($from_id);
             $clientes->rol_id = 6;
             $clientes->state_id = 2;
@@ -100,7 +100,7 @@ class ChatController extends Controller
             ]
               ];
            
-              
+           
               $chat = new WebhookController();
               $chat->receptor($data);
        

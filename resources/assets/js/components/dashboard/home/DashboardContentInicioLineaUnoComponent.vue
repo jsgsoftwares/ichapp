@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="text-center">
-              <h1 class="mb-2 text-white">Wellcome Johnny Gonzalez,</h1>
+              <h1 class="mb-2 text-white">Wellcome Juan David Gonzalez,</h1>
               <p class="m-auto w-75">
                 You have received <strong>5039</strong> messages today
               </p>

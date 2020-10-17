@@ -4,10 +4,10 @@
       <div class="container">
         <header class="section-header">
           <br />
-          <h3>Producto</h3>
-          <p>
-            La plataforma muticanal que simplifica y automatiza todo el servicio
-            de atención al cliente y mejorar su experiencia de usuario.
+          <h3 style="color: #fff;">Product</h3>
+          <p style="color: #fff;">
+            The multi-channel platform that simplifies and automates the entire service
+            customer service and improve your user experience.
           </p>
         </header>
         <b-container class="bv-example-row">
@@ -16,43 +16,34 @@
               <div class="box">
                 <div class="icon">
                   <b-img
-                    src="voixbotweb/img/inteligencia_onmicanal.png"
-                    width="80px"
-                    height="80px"
+                    src="ichapp/img/inteligencia_onmicanal.png"
+                    width="80%"
+                    height="80%"
                   />
                 </div>
-                <h5 class="title">
-                  <a href>Servicio inteligente y multicanal</a>
+                <h5 class="title" style="color:#5f62a9">
+                  Intelligent and multi-channel service
                 </h5>
-                <p class="description">
-                  Único frente de atención con un agente Virtual enrutando los
-                  mensajes de acuerdo a la disponibilidad de los
-                  agentes,historial de contactos y Respuestas rápidas. Habla con
-                  tus clientes en el canal principal que utilizan VoixBot tiene
-                  conexión directa con las APIs de
-                  WhatsApp,Telegram,Facebook,Twitter e Instagram para envíos a
-                  través de cuentas verificadas. Potencializa tus relaciones con
-                  los clientes mediante su canal favorito.
+                <p class="description" >
+                  
+                  Single service front with a Virtual agent routing the
+                  messages according to the availability of
+                  agents, contact history and quick responses. Talk to
+                  your customers on the main channel that use ichapp have
+                  direct connection to APIs
+                  WhatsApp, Telegram, Facebook, Twitter and Instagram for sending to
+                  through verified accounts. Potentiate your relationships with
+                  customers through their favorite channel.
                 </p>
               </div>
-              <!--   <div class="box">
-              <div class="icon"><i class="ion-ios-bookmarks-outline" style="color: #e9bf06;"></i></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-              -->
+
             </b-col>
             <b-col>
               <div>
                 <div class="intro-img">
-                  <img src="voixbotweb/img/voix.png" alt class="img-fluid" />
+                  <img src="ichapp/img/voix.png" alt class="img-fluid" />
                 </div>
-                <!--     <b-embed
-          type="iframe"
-          aspect="16by9"
-          src="https://www.youtube.com/embed/yT58gTXdQb8?rel=0"
-          allowfullscreen
-                ></b-embed>-->
+
               </div>
             </b-col>
           </b-row>

@@ -7,4 +7,8 @@ Vue.component(
   "dashusuariostabla_component",
   require("./DashboardContentUsuarioTableComponent")
 );
+Vue.component(
+  "dashusuariostablaedit_component",
+  require("./DashboardContentUsuarioTableEditarComponent")
+);
 export default new Vue({});

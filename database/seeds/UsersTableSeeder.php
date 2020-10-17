@@ -31,7 +31,8 @@ class UsersTableSeeder extends Seeder
                     'state_id'=>2,
                     'inmessage'=>1,
                     'enabled'=>1,
-                    'companie_id'=>2
+                    'companie_id'=>2,
+                    'creator'=>1
                 ]
                 );
                 User::create(
@@ -44,7 +45,8 @@ class UsersTableSeeder extends Seeder
                         'state_id'=>2,
                         'inmessage'=>1,
                         'enabled'=>1,
-                        'companie_id'=>3
+                        'companie_id'=>3,
+                        'creator'=>1
                     ]
                     );
                 /*  User::create(

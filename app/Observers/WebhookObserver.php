@@ -19,6 +19,7 @@ class WebhookObserver
         $date= Carbon::now()->format('Ymd');
         $sesion=Session::where('idkey',$date)
         ->where('from_id',$webhook->cliente_id)
+        ->where('mytoken',$webhook->mytoken)
         ->where('state_id',2)
         ->first();
         $telegramUser=Integracioneswebhook::where('mytoken',$webhook->mytoken)->get();
@@ -26,8 +27,8 @@ class WebhookObserver
         $companie=$telegramUser[0]->companie_id;
         
 
-        $sessiones= collect(\DB::select("select x.id,sum(x.cantidad) cantidad,max(x.fecha)  from (SELECT a.`id`,if(b.id is null ,0,1) cantidad ,if(b.created_at is null,'2010-01-01 08:00:37',b.created_at) fecha FROM `users` as a LEFT outer join sessions as b  on a.id=b.to_id and   b.state_id=2 WHERE a.`inmessage`=1 and a.`state_id`= 2  and a.`companie_id`=".$companie.") as x group by x.id,x.fecha order by cantidad,x.fecha LIMIT 1 "))->first();
-   
+        $sessiones= collect(\DB::select("select x.id,sum(x.cantidad) cantidad,max(x.fecha)  from (SELECT a.`id`,if(b.id is null ,0,1) cantidad ,if(b.created_at is null,'2010-01-01 08:00:37',b.created_at) fecha FROM `users` as a LEFT outer join sessions as b  on a.id=b.to_id and   b.state_id=2 WHERE a.`inmessage`=1 and a.`state_id`= 2  and a.`companie_id`=".$companie." ) as x group by x.id,x.fecha order by cantidad,x.fecha LIMIT 1 "))->first();
+      
         if(!isset($sesion))
         {
            
