@@ -70,7 +70,7 @@ class WapingController extends Controller
           
             $json=[
                 "token"=>$token->token,
-                "source"=>$token->phone,
+                "source"=>$token->phone_code,
                 "destination"=>$para,
                 "type"=>$tipoMen,
                 'channel' => 'whatsapp',
@@ -78,9 +78,9 @@ class WapingController extends Controller
 
             ];
             
-                //Storage::disk('local')->put(date("YmdHi").'_mmm.txt', json_encode($json));
+    
           $curl = curl_init();
-            dd(json_encode($json));
+           
           curl_setopt_array($curl, array(
           CURLOPT_URL => "http://waping.es/api/send",
           CURLOPT_RETURNTRANSFER => true,
@@ -97,6 +97,7 @@ class WapingController extends Controller
           ));
         
         $response = curl_exec($curl);
+        //Storage::disk('local')->put(date("YmdHi").'_mmm.txt', json_encode($response));
         if($curl != null) 
         curl_close($curl);
 
@@ -108,47 +109,47 @@ class WapingController extends Controller
 
       function eliminar_acentos($cadena)
       {
-        
-      //Reemplazamos la A y a
-      $cadena = str_replace(
-      array('Á', 'À', 'Â', 'Ä', 'á', 'à', 'ä', 'â', 'ª'),
-      array('A', 'A', 'A', 'A', 'a', 'a', 'a', 'a', 'a'),
-      $cadena
-      );
+            
+          //Reemplazamos la A y a
+          $cadena = str_replace(
+          array('Á', 'À', 'Â', 'Ä', 'á', 'à', 'ä', 'â', 'ª'),
+          array('A', 'A', 'A', 'A', 'a', 'a', 'a', 'a', 'a'),
+          $cadena
+          );
 
-      //Reemplazamos la E y e
-      $cadena = str_replace(
-      array('É', 'È', 'Ê', 'Ë', 'é', 'è', 'ë', 'ê'),
-      array('E', 'E', 'E', 'E', 'e', 'e', 'e', 'e'),
-      $cadena );
+          //Reemplazamos la E y e
+          $cadena = str_replace(
+          array('É', 'È', 'Ê', 'Ë', 'é', 'è', 'ë', 'ê'),
+          array('E', 'E', 'E', 'E', 'e', 'e', 'e', 'e'),
+          $cadena );
 
-      //Reemplazamos la I y i
-      $cadena = str_replace(
-      array('Í', 'Ì', 'Ï', 'Î', 'í', 'ì', 'ï', 'î'),
-      array('I', 'I', 'I', 'I', 'i', 'i', 'i', 'i'),
-      $cadena );
+          //Reemplazamos la I y i
+          $cadena = str_replace(
+          array('Í', 'Ì', 'Ï', 'Î', 'í', 'ì', 'ï', 'î'),
+          array('I', 'I', 'I', 'I', 'i', 'i', 'i', 'i'),
+          $cadena );
 
-      //Reemplazamos la O y o
-      $cadena = str_replace(
-      array('Ó', 'Ò', 'Ö', 'Ô', 'ó', 'ò', 'ö', 'ô'),
-      array('O', 'O', 'O', 'O', 'o', 'o', 'o', 'o'),
-      $cadena );
+          //Reemplazamos la O y o
+          $cadena = str_replace(
+          array('Ó', 'Ò', 'Ö', 'Ô', 'ó', 'ò', 'ö', 'ô'),
+          array('O', 'O', 'O', 'O', 'o', 'o', 'o', 'o'),
+          $cadena );
 
-      //Reemplazamos la U y u
-      $cadena = str_replace(
-      array('Ú', 'Ù', 'Û', 'Ü', 'ú', 'ù', 'ü', 'û'),
-      array('U', 'U', 'U', 'U', 'u', 'u', 'u', 'u'),
-      $cadena );
+          //Reemplazamos la U y u
+          $cadena = str_replace(
+          array('Ú', 'Ù', 'Û', 'Ü', 'ú', 'ù', 'ü', 'û'),
+          array('U', 'U', 'U', 'U', 'u', 'u', 'u', 'u'),
+          $cadena );
 
-      //Reemplazamos la N, n, C y c
-      $cadena = str_replace(
-      array('Ñ', 'ñ', 'Ç', 'ç'),
-      array('N', 'n', 'C', 'c'),
-      $cadena
-      );
-      
-      return $cadena;
-    }
+          //Reemplazamos la N, n, C y c
+          $cadena = str_replace(
+          array('Ñ', 'ñ', 'Ç', 'ç'),
+          array('N', 'n', 'C', 'c'),
+          $cadena
+          );
+          
+          return $cadena;
+      }
 
     public function getmessages($companieId,$mytoken,Request $request){
       
