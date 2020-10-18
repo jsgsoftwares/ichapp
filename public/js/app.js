@@ -106236,7 +106236,7 @@ var render = function() {
       {
         staticClass: "section-bg ",
         staticStyle: { "background-color": "#fff" },
-        attrs: { id: "private" }
+        attrs: { id: "privacy" }
       },
       [
         _c(

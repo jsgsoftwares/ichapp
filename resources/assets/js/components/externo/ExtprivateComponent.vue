@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section id="private" class="section-bg " style="background-color:#fff">
+    <section id="privacy" class="section-bg " style="background-color:#fff">
       <div class="container">
         <header class="section-header">
           <br />
