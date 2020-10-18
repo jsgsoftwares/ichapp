@@ -223,9 +223,9 @@ class WapingController extends Controller
 
 
      
-        $integracion=Integracioneswebhook::where('phone',$to)->first();
+        $integracion=Integracioneswebhook::where('phone_code',$to)->first();
 
-        
+      
         
       if($integracion->enabled && $integracion->start){
             if(strlen($name)>0){
