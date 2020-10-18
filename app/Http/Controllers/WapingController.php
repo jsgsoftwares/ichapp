@@ -97,7 +97,7 @@ class WapingController extends Controller
           ));
         
         $response = curl_exec($curl);
-        //Storage::disk('local')->put(date("YmdHi").'_mmm.txt', json_encode($response));
+        Storage::disk('local')->put(date("YmdHi").'_mmm.txt', json_encode($response));
         if($curl != null) 
         curl_close($curl);
 
