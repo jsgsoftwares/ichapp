@@ -4,7 +4,7 @@ namespace App\Observers;
 use App\Events\MessageSent;
 use App\Events\MessageWasapp;
 use App\messages;
-use App\session;
+use App\Session;
 use App\Http\Controllers\ControlController;
 use App\conversation;
 use DB;
@@ -33,7 +33,7 @@ class MessageObserver
 
            $conversation=conversation::where('session_id',$message->session_id)
                             ->first();
-            $session_de_usuario=session::where('id',$message->session_id)->first();
+            $session_de_usuario=Session::where('id',$message->session_id)->first();
             
             if($conversation)// SI YA TIENE UNA SESSION CREADA EN CONVERSATION
             {
