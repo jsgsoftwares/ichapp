@@ -15,7 +15,7 @@
                 />
                 <img
                   class="align-self-center rounded-circle"
-                  src="assets/images/empty-logo.png"
+                  src="/assets/images/empty-logo.png"
                   alt="Generic placeholder image"
                   v-else
                 />
@@ -58,7 +58,7 @@
                     <i class="feather icon-more-vertical-"></i>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="chatDropdown">
-                    <a class="dropdown-item font-14" href="#" id="view-user-info">View User Info</a>
+                    <a class="dropdown-item font-14" @click="veruserinfo()" id="view-user-info">View User Info</a>
                     <a class="dropdown-item font-14" @click="modalhistory()">View history</a>
                     <!--   <a class="dropdown-item font-14" href="#">Archive</a>
                     <a class="dropdown-item font-14" href="#">Clear Message</a>-->
@@ -86,6 +86,7 @@
             :icono="messages.imagen"
             :dialogo="messages.content"
             :hora="messages.created_at"
+            
           ></vxchatbody_component>
         </div>
         <div class="tab-content card_style" id="chat-listContent" v-else>
@@ -148,7 +149,7 @@
       </div>
     </div>
 
-    <vxchatuserinfo_component :icono_perfil="icono_perfil" />
+    <vxchatuserinfo_component  :icono_perfil="icono_perfil" />
 
     <!-- MODALES -->
     <div
@@ -281,7 +282,7 @@
         <template>
           <div>
             <div id="preview" v-if="url">
-              <img v-if="url" src="../../../../../public/assets/images/doc.svg" />
+              <img v-if="url" src="/assets/images/doc.svg" />
             </div>
             <b-form-file
               v-model="file"
@@ -388,10 +389,12 @@ export default {
       selected_agent: [],
       state: {
         cambio: false,
+        viewuserinfo:false,
       },
     };
   },
   mounted() {
+    document.getElementById("userinfo").style.display="none";
     this.scrollBotton();
     this.$store.dispatch("getsearchAgent");
     this.items = this.$store.state.agentes;
@@ -424,6 +427,12 @@ export default {
     modalhistory() {
       this.$refs["modalhistory"].show();
     },
+   veruserinfo(){
+      document.getElementById("userinfo").style.display="block";
+    },
+   /* cerrarruserinfo(){
+      this.state.viewuserinfo=false;
+    }, */
     transferir() {
       if (this.selected_agent.length > 0) {
         this.selected_agent.push({ contacto: this.contactId });
@@ -635,6 +644,12 @@ export default {
   computed: {
     cambio() {
       return this.state.cambio;
+    },
+    viewuser(){
+      if(this.state.viewuserinfo){
+         document.getElementById("userinfo").style.display="block";
+      }
+      return this.state.viewuserinfo;
     },
     mensajesPre() {
       return this.$store.state.mensajesPre;

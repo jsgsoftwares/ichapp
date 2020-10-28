@@ -9,7 +9,7 @@
                 class="align-self-center mr-2"
                 width="60px"
                 height="60px"
-                src="assets/images/empty-logo.png"
+                src="/assets/images/empty-logo.png"
                 alt="logo"
               />
               <div class="media-body">
@@ -38,12 +38,12 @@ export default {
   data() {
     return {
       state: {
-        imagenLogo: "../../../../../public/assets/images/empty-logo.png",
+        imagenLogo: "/assets/images/empty-logo.png",
       },
     };
   },
   mounted() {
-    this.imagenLogo = "../../../../../public/assets/images/empty-logo.png";
+    this.imagenLogo = "/assets/images/empty-logo.png";
     //  this.imagenLogo = "assets/images/empty-logo.png";
   },
   computed: {

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp;
 use Storage;
 use App\Integracioneswebhook;
+use App\subscriptionproducts;
 class WapingController extends Controller
 {
     
@@ -203,7 +204,8 @@ class WapingController extends Controller
     }
     public function getmessagesWaping(Request $request){
 
-
+      
+          
       
         $pos = strpos($request, "{");
         $cadena=utf8_encode(substr($request,$pos));
@@ -225,31 +227,38 @@ class WapingController extends Controller
 
      
         $integracion=Integracioneswebhook::where('phone_code',$to)->first();
+        $sub=subscriptionproducts::where('companie_id',$integracion->companie_id)
+        ->where('product_id',3)
+        ->where('enabled',1)
+        ->get();
+          
 
       
-        
-      if($integracion->enabled && $integracion->start){
-            if(strlen($name)>0){
-              $name=$from;
-            }
-            if($type=="text" || $type=="chat"){
-                $mensaje=$request->message->body->text;
-                $tipo="texto";
-            }
-            else{
-              $mensaje=$request->message->body->url;
-            }
-            
-            
-            $mensaje=$this->eliminar_acentos($mensaje);
+        if($sub){
+          if($integracion->enabled && $integracion->start){
+                if(strlen($name)>0){
+                  $name=$from;
+                }
+                if($type=="text" || $type=="chat"){
+                    $mensaje=$request->message->body->text;
+                    $tipo="texto";
+                }
+                else{
+                  $mensaje=$request->message->body->url;
+                }
+                
+                
+                $mensaje=$this->eliminar_acentos($mensaje);
 
+                
             
-        
-            $chat = new ChatController();
-            $URL=env('APP_URL').'668803720/webhook';
-            $chat->verificar_status($URL, $id,$name,$from,$to,$date,$mensaje,'whatsapp',$tipo,'waping',$integracion->mytoken,$integracion->companie_id);
-        
-      }
+                $chat = new ChatController();
+                $URL=env('APP_URL').'668803720/webhook';
+                $chat->verificar_status($URL, $id,$name,$from,$to,$date,$mensaje,'whatsapp',$tipo,'waping',$integracion->mytoken,$integracion->companie_id);
+            
+          }
+        }
+
       }
       
     

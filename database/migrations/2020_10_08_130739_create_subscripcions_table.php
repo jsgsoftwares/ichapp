@@ -15,22 +15,13 @@ class CreateSubscripcionsTable extends Migration
     {
         Schema::create('subscripcions', function (Blueprint $table) {
             $table->increments('id');
-
-           /*  $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references()->on('users');
-
-            $table->integer('plan_id')->unsigned();
-            $table->foreign('plan_id')->references()->on('plans');
-
-
+            $table->unsignedInteger('companie_id');
+            $table->foreign('companie_id')->references('id')->on('companies');
+            $table->unsignedInteger('plan_id');
+            $table->foreign('plan_id')->references('id')->on('plans');
             $table->dateTime('started_at');
             $table->dateTime('finish_at');
-
-            $table->boolean('renewal')->default(true);
-            $table->dateTime('renewal_cancelled_at');
-
-
-            $table->dateTime('ended_at'); */
+            $table->dateTime('renewal_cancelled_at')->nullable();
             
 
             $table->timestamps();

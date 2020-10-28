@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
   <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-  <meta name="author" content="PIXINVENT">
+  <meta name="author" content="jsgsoftware">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -18,11 +18,16 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/vendors.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/toastr.css') }}">
+    <!-- END: Vendor CSS-->
+
+
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/charts/apexcharts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/tether-theme-arrows.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/tether.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/shepherd-theme-default.css') }}">
-    <!-- END: Vendor CSS-->
+
     <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/bootstrap.css') }}">
@@ -31,22 +36,28 @@
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/components.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/themes/dark-layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/themes/semi-dark-layout.css') }}">
-
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/subscription.css') }}"> --}}
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/colors/palette-gradient.css') }}">
+{{--     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+ --}}    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/colors/palette-gradient.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/dashboard-analytics.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/card-analytics.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/tour/tour.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/app-ecommerce-shop.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/forms/wizard.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/extensions/toastr.css') }}">
+   
+   
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/estilo/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('app-assets/estilo/css/style.css')}}"> --}}
     <!-- END: Custom CSS-->
 
 
 </head>
-<body class="vertical-layout vertical-menu-modern 2-columns  navbar-floating footer-static   menu-collapsed" 
+<body class="vertical-layout vertical-menu-modern 2-columns ecommerce-application navbar-floating footer-static   menu-collapsed" 
 data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
     <div id="app">
  
@@ -79,6 +90,11 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 
     <!-- BEGIN: Page JS-->
     <script src="{{asset('app-assets/js/scripts/pages/dashboard-analytics.js') }}"></script>
+    <script src="{{asset('app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js') }}"></script>
+    <script src="{{asset('app-assets/vendors/js/extensions/jquery.steps.min.js') }}"></script>
+    <script src="{{asset('app-assets/vendors/js/forms/validation/jquery.validate.min.js') }}"></script>
+    <script src="{{asset('app-assets/vendors/js/extensions/toastr.min.js') }}"></script>
+    <script src="{{asset('app-assets/js/scripts/pages/app-ecommerce-shop.js') }}"></script>
     <!-- END: Page JS-->
 
 

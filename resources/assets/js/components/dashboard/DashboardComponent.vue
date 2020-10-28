@@ -58,6 +58,10 @@ export default {
     },
   },
   mounted() {
+     this.$store.dispatch("getSubscripciones", this.user_id).then(()=>{
+       console.log('ss',this.$store.state.subscripcion);
+     }
+     );
     this.$store.dispatch("setpaginas", "inicio");
     this.$store.dispatch("getIntegraciones");
     this.$store.commit("setUser", this.user_id);
@@ -72,6 +76,9 @@ export default {
       //console.log("estado", this.$store.state.paginascontent);
       return this.$store.state.paginascontent;
     },
+    subscription(){
+      return this.$store.state.subscripcion;
+    }
   },
 };
 </script>

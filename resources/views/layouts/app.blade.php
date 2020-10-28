@@ -30,7 +30,7 @@
 </head>
 <body class="h-100">
     <div id="app">
-    <b-navbar toggleable="sm" type="dark" variant="info">
+    <b-navbar toggleable="sm" type="dark" style="background-color:#7367f0; color:#fff">
         <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
 
         <b-navbar-brand href="{{ route('inicio') }}"> 
@@ -46,7 +46,10 @@
   
 
                 <b-nav-item-dropdown text="{{ Auth::user()->name }} " right>
-                <b-dropdown-item href="#" @click="logout">Cerrar sesion</b-dropdown-item>
+                  @if(Auth::user()->rol_id==2 || Auth::user()->rol_id==1)
+                      <b-dropdown-item href="/dashboard">Dashboard</b-dropdown-item>
+                  @endif
+                  <b-dropdown-item href="#" @click="logout">Cerrar sesion</b-dropdown-item>
                 </b-nav-item-dropdown>
                 @endguest
             </b-navbar-nav>

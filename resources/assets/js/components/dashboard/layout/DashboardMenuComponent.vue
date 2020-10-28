@@ -26,10 +26,18 @@
           ><span class="menu-title" data-i18n="user">Users</span></a
         >
       </li>
+            <li class="nav-item">
+        <a href="/chat"
+          >
+          <i class="feather icon-message-square"></i>
+          <span class="menu-title" data-i18n="user">Chats</span></a
+        >
+      </li>
+      
       <li class="nav-item">
         <a @click="upgrade()"
           ><i class="feather icon-arrow-up"></i
-          ><span class="menu-title" data-i18n="upgrade">Upgrade plan</span></a
+          ><span class="menu-title" data-i18n="upgrade">Subscriptions</span></a
         >
       </li>
       <li class="nav-item">

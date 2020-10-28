@@ -1,7 +1,8 @@
 <template>
   <div class="pl-0" fluid style="height: calc(100vh - 67px)">
-    <div class="chat-layout">
-      <izquierda_component />
+    <div class="chat-layout" v-if="subscr">
+      <!-- <b-spinner style="width: 3rem; height: 3rem;" label="Large Spinner"></b-spinner> -->
+      <izquierda_component  />
       <derecha_component
         v-if="selectConversation"
         :contactId="selectConversation.contact_id"
@@ -13,6 +14,7 @@
       ></derecha_component>
       <derecha_component v-else :status="false" />
     </div>
+<div  v-else><spinner/></div>
   </div>
 </template>
 <script>
@@ -24,13 +26,28 @@ export default {
   data() {
     return {
       querySearch: "",
+      state:{subs:false}
     };
   },
   mounted() {
-    this.$store.dispatch("getServicios");
-    this.$store.dispatch("getIntegraciones");
     this.$store.commit("setUser", this.user_id);
-    this.$store.commit("setUrl", this.url_app);
+    this.$store.commit("setUrl", this.url_app); 
+    //console.log(this.user_id);
+    this.$store.dispatch("getSubscripciones", this.user_id).then(()=>{
+     // console.log(this.$store.state.subscripcion);
+      this.state.subs=true;
+          
+    
+    
+    });
+     this.$store.dispatch("getServicios");
+    this.$store.dispatch("getIntegraciones");
+   
+   
+
+    
+/*     this.$store.commit("setUser", this.user_id);
+    this.$store.commit("setUrl", this.url_app); */
 
     this.$store.dispatch("getConversation").then(() => {
       const conversationId = this.$route.params.conversationId;
@@ -45,7 +62,7 @@ export default {
       }
     });
 
-    Echo.channel(`users.${this.user_id}`).listen("MessageSent", (data) => {
+    Echo.channel(`users.${this.$store.state.user_id}`).listen("MessageSent", (data) => {
       const message = data.message;
       message.receptor = false;
       this.$store.dispatch("getConversation");
@@ -95,6 +112,9 @@ export default {
     },
     conversationsFiltradas() {
       //return this.conversations.filter((conversation)=>conversation.contact_name.includes(this.querySearch))
+    },
+    subscr(){
+      return this.state.subs;
     },
   },
 };

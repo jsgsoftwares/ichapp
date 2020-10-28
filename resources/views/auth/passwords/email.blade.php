@@ -33,7 +33,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit"  style="background-color:#7367f0; color:#fff" class="btn btn-primary">
                                     Send Password Reset Link
                                 </button>
                             </div>

@@ -27,6 +27,7 @@
               :canal="integra.canal_id"
               :description="integra.description"
               :avatar="integra.avatar"
+
             />
           </div>
         </section>
@@ -39,15 +40,22 @@
 export default {
   data() {
     return {
+      gray:'filter: grayscale(1)',
       state: {},
     };
   },
-  mounted() {},
+  mounted() {
 
+  },
+  methods:{
+ 
+ },
   computed: {
     integraciones() {
+      
       return this.$store.state.integraciones;
     },
+
   },
   methods: {
     selectCanal(integracion) {

@@ -52,3 +52,8 @@ Route::post('v1/close/user','UsersCompaniesController@DeleteUsuario');
 
 Route::get('v1/get/paises','PaisesController@phonepaises');
 Route::post('v1/get/token','IntegracioneswebhookController@obtenerTokenWaping');
+
+
+
+//subscriptions
+Route::get('v1/get/subscription/{userid}','SubscriptionproductsController@subscriptions');

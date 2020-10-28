@@ -1,8 +1,8 @@
 import Vue from "vue";
 
 Vue.component(
-  "mensajes_componente",
-  require("./mensajesPredefinidosComponent.vue")
+    "mensajes_componente",
+    require("./mensajesPredefinidosComponent.vue")
 );
 Vue.component("head_componente", require("./HeadMenuComponent.vue"));
 Vue.component("status_componente", require("./StatusContactComponent"));
@@ -10,12 +10,12 @@ Vue.component("status_componente", require("./StatusContactComponent"));
 Vue.component("contact_componente", require("./ContactComponent.vue"));
 Vue.component("contactlist", require("./ContactListComponent.vue"));
 Vue.component(
-  "conversationactiva",
-  require("./ActiveConversationComponent.vue")
+    "conversationactiva",
+    require("./ActiveConversationComponent.vue")
 );
 Vue.component(
-  "messageconversation",
-  require("./MessageConversationComponent.vue")
+    "messageconversation",
+    require("./MessageConversationComponent.vue")
 );
 Vue.component("searchcontactlist", require("./SearchContactListComponent.vue"));
 Vue.component("historialList", require("./HistorialConversationComponent.vue"));
@@ -40,5 +40,6 @@ Vue.component("vxchatbodynada_component", require("./vxchatnada"));
 Vue.component("vxchatuserinfo_component", require("./vxuserinfoComponent"));
 Vue.component("vxhistorial_component", require("./vxhistorialcomponent"));
 Vue.component("vximagensubir", require("./vximagensubirComponent"));
-
+Vue.component("vxintegraciones", require("./vxchatIntegracionesActivasComponent"));
+Vue.component("messenger_Component", require("./MessengerComponent"));
 export default new Vue({});

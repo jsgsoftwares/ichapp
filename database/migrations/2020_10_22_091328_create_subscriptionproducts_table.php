@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlanesmigracionesTable extends Migration
+class CreateSubscriptionproductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,18 @@ class CreatePlanesmigracionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('planesmigraciones', function (Blueprint $table) {
+        Schema::create('subscriptionproducts', function (Blueprint $table) {
             $table->increments('id');
-            
             $table->unsignedInteger('companie_id');
             $table->foreign('companie_id')->references('id')->on('companies');
-    
-            $table->unsignedInteger('from_plan_id');
-            $table->foreign('from_plan_id')->references('id')->on('plans');
+
+            $table->unsignedInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->Integer('cantidad');
+            $table->integer('enabled');
+            $table->dateTime('request_add_at');
+            $table->dateTime('request_cancelled_at')->nullable();
             
-            $table->unsignedInteger('to_plan_id');
-            $table->foreign('to_plan_id')->references('id')->on('plans');
-           
-            $table->dateTime('requested_at')->nullable();
-            $table->dateTime('execution_at')->nullable();
             $table->timestamps();
         });
     }
@@ -38,6 +36,6 @@ class CreatePlanesmigracionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('planesmigraciones');
+        Schema::dropIfExists('subscriptionproducts');
     }
 }

@@ -8,7 +8,7 @@
     >
       <div class="chat-listbar">
         <vxheadchat_component />
-
+        <vxintegraciones/>
         <searchcontactlist />
 
         <b-list-group>

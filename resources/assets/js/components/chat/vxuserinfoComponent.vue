@@ -1,5 +1,5 @@
 <template>
-  <div class="chat-user-info">
+  <div class="chat-user-info" id="userinfo">
     <div class="chat-user-head">
       <div class="row align-items-center">
         <div class="col-9">
@@ -8,7 +8,7 @@
         <div class="col-3">
           <ul class="list-inline float-right mb-0">
             <li class="list-inline-item">
-              <a href="#" id="close-user-info">
+              <a @click="cierra()" id="close-user-info">
                 <i class="feather icon-x"></i>
               </a>
             </li>
@@ -99,6 +99,9 @@ export default {
     icono_perfil: String,
     contactId: Number,
   },
+  mounted() {
+      console.log("CARGANDO")
+  },
   methods: {
     userUpdate() {
       this.$store.dispatch("getsearchAgent");
@@ -106,6 +109,10 @@ export default {
 
       this.$refs["userUpdate"].show();
     },
+    cierra(){
+   
+      document.getElementById("userinfo").style.display="none";
+    }
   },
   computed: {
     infocliente() {

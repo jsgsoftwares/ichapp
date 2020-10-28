@@ -75,7 +75,7 @@
                         >
                     </b-form-input>
                 </b-form-group>
-                <b-button type="submit" variant="primary" form="formulario-register" >Registrar</b-button>
+                <b-button type="submit"  style="background-color:#7367f0; color:#fff" form="formulario-register" >Registrar</b-button>
                 <b-button  href="{{ route('login') }}" variant="link">Ya estas registrado?</b-button>
             </b-form>
             </b-card>

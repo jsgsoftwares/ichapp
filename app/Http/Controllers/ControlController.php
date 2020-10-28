@@ -9,6 +9,7 @@ use App\User;
 use App\Integracioneswebhook;
 use App\Integracionwaping;
 use App\Integracionbotflow;
+use App\subscriptionproducts;
 use Storage;
 use Carbon\Carbon;
 use App\Webhook;
@@ -50,9 +51,12 @@ class ControlController extends Controller
 		$sendtwitter= new TwitterController();
 		$sendinstagram= new InstagramController();
 		$botApi=Integracionbotflow::where('companie_id',$compania)->get();
+		$sub=subscriptionproducts::where('companie_id',$compania)
+        ->where('product_id',2)
+        ->where('enabled',1)
+        ->get();
 		
-		
-			if(($session->flujo_id==1 and $botApi[0]->enabled==1)){
+			if(($session->flujo_id==1 and $botApi[0]->enabled==1 and $sub)){
 			
 				$resp = new DialogflowController();
 				$info=$resp->conversacion($canal,$token,$desde,$mensaje,$idmensaje,$proveedor,$compania);

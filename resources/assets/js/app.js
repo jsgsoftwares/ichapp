@@ -19,7 +19,8 @@ import externos from "./components/externo/app_externo.js";
 import integraciones from "./components/dashboard/integraciones/app_integra.js";
 import VueRouter from "vue-router";
 import BootstrapVue from "bootstrap-vue";
-import messenger_Component from "./components/chat/MessengerComponent.vue";
+import layoutchat_Component from "./components/chat/layoutChatComponent";
+import messenger_Component from "./components/chat/MessengerComponent";
 import example_component from "./components/ExampleComponent.vue";
 import dashboard_component from "./components/dashboard/DashboardComponent.vue";
 import VueGoogleCharts from "vue-google-charts";
@@ -27,42 +28,45 @@ import VueClipboard from "vue-clipboard2";
 
 import VueSweetalert2 from "vue-sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
+import VueSpinners from 'vue-spinners'
 
+Vue.use(VueSpinners)
 Vue.use(VueClipboard);
 Vue.use(multiselect);
 Vue.use(VueGoogleCharts);
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.use(VueSweetalert2);
-
+Vue.component("spinner", require("./components/spinner"));
 const routes = [
-  { path: "/chat", component: messenger_Component },
-  { path: "/dashboard", component: dashboard_component },
-  { path: "/chat/:conversationId", component: messenger_Component },
-  /* { path: '/example', component: example_component } */
+
+    { path: "/chat", component: messenger_Component },
+    { path: "/dashboard", component: dashboard_component },
+    { path: "/chat/:conversationId", name: 'chatid', component: messenger_Component },
+    /* { path: '/example', component: example_component } */
 ];
 
 const router = new VueRouter({
-  routes,
-  mode: "history",
+    routes,
+    mode: "history",
 });
 
 const app = new Vue({
-  el: "#app",
-  store,
-  dashboard_store,
-  integraciones,
-  dashboards,
-  chats,
-  externos,
-  dashboard_home,
-  dashboard_users,
-  dashboard_layout,
-  ai,
-  router,
-  methods: {
-    logout() {
-      document.getElementById("logout-form").submit();
+    el: "#app",
+    store,
+    dashboard_store,
+    integraciones,
+    dashboards,
+    chats,
+    externos,
+    dashboard_home,
+    dashboard_users,
+    dashboard_layout,
+    ai,
+    router,
+    methods: {
+        logout() {
+            document.getElementById("logout-form").submit();
+        },
     },
-  },
 });

@@ -53,7 +53,7 @@
                      Recordarme
                     </b-form-checkbox>
                 </b-form-group>
-                <b-button type="submit" variant="primary">Iniciar sesion</b-button>
+                <b-button type="submit" style="background-color:#7367f0; color:#fff">Iniciar sesion</b-button>
                 <b-button  href="{{ route('password.request') }}" variant="link">Olvidaste tu contraseña</b-button>
                
             

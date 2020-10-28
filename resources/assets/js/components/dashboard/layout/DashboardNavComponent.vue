@@ -77,7 +77,7 @@
                     ><i class="feather icon-mail"></i> My Inbox</a
                   ><a class="dropdown-item" href="app-todo.html"
                     ><i class="feather icon-check-square"></i> Task</a
-                  ><a class="dropdown-item" href="app-chat.html"
+                  ><a class="dropdown-item" href="/chat"
                     ><i class="feather icon-message-square"></i> Chats</a
                   >
                   <div class="dropdown-divider"></div>
