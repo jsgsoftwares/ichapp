@@ -7,8 +7,8 @@ use Telegram\Bot\Api;
 use GuzzleHttp;
 use App\Http\Controllers\ChatController;
 use Storage;
-use App\User;
-use App\Integracioneswebhook;
+use App\Models\User;
+use App\Models\Integracioneswebhook;
 use Telegram\Bot\FileUpload\InputFile;
 class TelegramController extends Controller
 {

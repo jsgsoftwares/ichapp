@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Integraciones;
+use App\Models\Integraciones;
 class IntegracionesController extends Controller
 {
     //

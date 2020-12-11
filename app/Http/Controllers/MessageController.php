@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use App\messages;
-use App\Session;
-use App\conversation;
+use App\Models\messages;
+use App\Models\Session;
+use App\Models\conversation;
 use DB;
 use Storage;
 class MessageController extends Controller

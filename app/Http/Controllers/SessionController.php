@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Session;
+use App\Models\Session;
 use DB;
 use Carbon\Carbon;
 class SessionController extends Controller

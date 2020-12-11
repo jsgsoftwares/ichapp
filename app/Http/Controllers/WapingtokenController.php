@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\wapingtoken;
+use App\Models\wapingtoken;
 use Illuminate\Http\Request;
 
 class WapingtokenController extends Controller

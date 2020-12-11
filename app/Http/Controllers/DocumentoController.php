@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Documento;
+use App\Models\Documento;
 use DB;
 use Storage;
 class DocumentoController extends Controller

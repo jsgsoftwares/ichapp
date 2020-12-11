@@ -59,11 +59,11 @@
 </head>
 <body class="vertical-layout vertical-menu-modern 2-columns ecommerce-application navbar-floating footer-static   menu-collapsed" 
 data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
-    <div id="app">
- 
- {{--    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-    </form> --}}
+<script
+src="https://www.paypal.com/sdk/js?client-id=Ad1OFh6fNzdEqPvKqRHGL5q_70K7CcD5GWgQYo2TkaXtP3VI_D7crzFHmEfyFCgb20X6GgfKaJmnTisG&vault=true">
+</script>
+<div id="app">
+
 
       
         @yield('content')

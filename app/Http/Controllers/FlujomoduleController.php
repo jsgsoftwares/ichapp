@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\flujomodule;
-use App\acciones_modulo;
+use App\Models\flujomodule;
+use App\Models\acciones_modulo;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\FlujomoduleController;
 use App\Http\Controllers\EvopartsModuloController;
-use App\Integracioneswebhook;
-use App\Integracionwaping;
-use App\Integracionbotflow;
+use App\Models\Integracioneswebhook;
+use App\Models\Integracionwaping;
+use App\Models\Integracionbotflow;
 use Storage;
-use App\Webhook;
-use App\Canales;
+use App\Models\Webhook;
+use App\Models\Canales;
 use Carbon\Carbon;
 use GuzzleHttp;
 class FlujomoduleController extends Controller

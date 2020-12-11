@@ -16,8 +16,9 @@ class CreateSubscriptionproductsTable extends Migration
         Schema::create('subscriptionproducts', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('companie_id');
+            $table->unsignedInteger('plan_id');
+            $table->foreign('plan_id')->references('id')->on('plans');
             $table->foreign('companie_id')->references('id')->on('companies');
-
             $table->unsignedInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->Integer('cantidad');

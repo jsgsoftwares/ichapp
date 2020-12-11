@@ -1,5 +1,0 @@
-{"update_id":221585805,
-"message":{"message_id":723,
-"from":{"id":249997265,"is_bot":false,"first_name":"Johnny","last_name":"Gonzalez","language_code":"en"}
-,"chat":{"id":249997265,"first_name":"Johnny","last_name":"Gonzalez","type":"private"}
-,"date":"2020-01-10 23:02:49","text":"hola"}}

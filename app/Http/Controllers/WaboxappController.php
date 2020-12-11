@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use GuzzleHttp;
 use App\Http\Controllers\ChatController;
 use Storage;
-use App\User;
-use App\Waboxapp;
+use App\Models\User;
+use App\Models\Waboxapp;
 class WaboxappController extends Controller
 {
 

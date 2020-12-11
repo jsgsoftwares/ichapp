@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use GuzzleHttp;
-use App\Twitter;
+use App\Models\Twitter;
 use Illuminate\Support\Facades\Storage;
 use Abraham\TwitterOAuth\TwitterOAuth;
 

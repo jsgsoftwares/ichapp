@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use GuzzleHttp;
 use Storage;
-use App\instagram;
+use App\Models\instagram;
 class InstagramController extends Controller
 {
     //

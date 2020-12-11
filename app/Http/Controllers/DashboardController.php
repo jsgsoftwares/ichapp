@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Consultas;
-use App\Session;
-use App\messages;
+use App\Models\Consultas;
+use App\Models\Session;
+use App\Models\messages;
 class DashboardController extends Controller
 {
     //

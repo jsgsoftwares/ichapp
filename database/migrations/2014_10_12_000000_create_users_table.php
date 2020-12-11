@@ -30,6 +30,13 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('companie_id');
             $table->foreign('companie_id')->references('id')->on('companies');
             $table->integer('inmessage')->default('0');
+            $table->integer('configurado')->default('0');
+            $table->string('facebook_id',100)->nullable();
+            $table->string('twitter_id',100)->nullable();
+            $table->string('google_id',100)->nullable();
+            $table->string('github_id',100)->nullable();
+            $table->string('avatar',100)->nullable();
+            $table->string('nick',100)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

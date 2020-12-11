@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\evoparts_modulo;
+use App\Models\evoparts_modulo;
 use Illuminate\Http\Request;
 
 class EvopartsModuloController extends Controller

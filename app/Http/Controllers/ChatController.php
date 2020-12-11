@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp;
-use App\User;
-use App\Canales;
+use App\Models\User;
+use App\Models\Canales;
 use Carbon\Carbon;
 use DB;
 use Storage;

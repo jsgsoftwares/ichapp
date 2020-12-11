@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Webhook;
-use App\User;
+use App\Models\Webhook;
+use App\Models\User;
 use Storage;
-use App\Canales;
+use App\Models\Canales;
 use DB;
 use Carbon\Carbon;
 

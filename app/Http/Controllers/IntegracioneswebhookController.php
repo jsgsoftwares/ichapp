@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Integracioneswebhook;
-use App\Integracionbotflow;
-use App\Companie;
-use App\wapingtoken;
-use App\User;
+use App\Models\Integracioneswebhook;
+use App\Models\Integracionbotflow;
+use App\Models\Companie;
+use App\Models\wapingtoken;
+use App\Models\User;
 use Illuminate\Http\UploadedFile;
 use Telegram\Bot\Api;
 use Storage;

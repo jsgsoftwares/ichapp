@@ -34,7 +34,7 @@
         <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
 
         <b-navbar-brand href="{{ route('inicio') }}"> 
-        {{ config('app.name', 'Voixbot') }}
+        {{ config('app.name', 'Ichapp') }}
         </b-navbar-brand>
 
         <b-collapse id="nav-text-collapse" is-nav>

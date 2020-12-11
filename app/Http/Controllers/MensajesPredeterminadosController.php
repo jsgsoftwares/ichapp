@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
-use App\MensajesPredeterminados;
-use App\Documento;
-use App\Paises;
-use App\Genero;
-use App\clientes_chat;
-use App\TipoConsultas;
-use App\User;
+use App\Models\MensajesPredeterminados;
+use App\Models\Documento;
+use App\Models\Paises;
+use App\Models\Genero;
+use App\Models\clientes_chat;
+use App\Models\TipoConsultas;
+use App\Models\User;
 class MensajesPredeterminadosController extends Controller
 {
     //

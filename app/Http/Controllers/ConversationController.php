@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
-use App\conversation;
-use App\Session;
+use App\Models\conversation;
+use App\Models\Session;
 class ConversationController extends Controller
 {
     

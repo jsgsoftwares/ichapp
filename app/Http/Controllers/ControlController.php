@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Session;
+use App\Models\Session;
 use DB;
-use App\User;
-use App\Integracioneswebhook;
-use App\Integracionwaping;
-use App\Integracionbotflow;
-use App\subscriptionproducts;
+use App\Models\User;
+use App\Models\Integracioneswebhook;
+use App\Models\Integracionwaping;
+use App\Models\Integracionbotflow;
+use App\Models\subscriptionproducts;
 use Storage;
 use Carbon\Carbon;
-use App\Webhook;
+use App\Models\Webhook;
 class ControlController extends Controller
 {
     

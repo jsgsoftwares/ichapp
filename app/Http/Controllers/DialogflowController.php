@@ -5,7 +5,7 @@ use Telegram\Bot\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
-use App\Integracionbotflow;
+use App\Models\Integracionbotflow;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use GuzzleHttp;
@@ -15,8 +15,8 @@ use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\WaboxappController; 
 
 use Carbon\Carbon;
-use App\Integracioneswebhook;
-use App\Integracionwaping;
+use App\Models\Integracioneswebhook;
+use App\Models\Integracionwaping;
 
 
 

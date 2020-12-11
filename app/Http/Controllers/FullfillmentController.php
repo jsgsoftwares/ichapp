@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Carbon\Carbon;
-use App\Webhook;
-use App\Dialogflow;
+use App\Models\Webhook;
+use App\Models\Dialogflow;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;

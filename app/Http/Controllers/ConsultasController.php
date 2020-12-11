@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Consultas;
+use App\Models\Consultas;
 use DB;
 use Storage;
 class ConsultasController extends Controller

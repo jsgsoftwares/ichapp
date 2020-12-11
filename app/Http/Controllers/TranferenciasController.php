@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Session;
-use App\messages;
+use App\Models\User;
+use App\Models\Session;
+use App\Models\messages;
 use DB;
 use Storage;
 use Auth;

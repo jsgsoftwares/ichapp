@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\clientes_chat;
-use App\Clientes_canal;
-use App\User;
+use App\Models\clientes_chat;
+use App\Models\Clientes_canal;
+use App\Models\User;
 use DB;
 use Storage;
 class ClienteschatController extends Controller

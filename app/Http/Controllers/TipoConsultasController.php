@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\TipoConsultas;
+use App\Models\TipoConsultas;
 use DB;
 use Storage;
 use Illuminate\Http\Request;

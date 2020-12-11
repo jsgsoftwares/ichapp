@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\acciones_modulo;
+use App\Models\acciones_modulo;
 use Illuminate\Http\Request;
 
 class AccionesModuloController extends Controller

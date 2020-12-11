@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Integraciontelegram;
-use App\Companie;
-use App\User;
+use App\Models\Integraciontelegram;
+use App\Models\Companie;
+use App\Models\User;
 use Telegram\Bot\Api;
 class IntegraciontelegramController extends Controller
 {

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp;
 use Storage;
-use App\Integracioneswebhook;
-use App\subscriptionproducts;
+use App\Models\Integracioneswebhook;
+use App\Models\subscriptionproducts;
 class WapingController extends Controller
 {
     

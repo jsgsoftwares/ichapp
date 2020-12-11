@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use GuzzleHttp;
-use App\Integracioneswebhook;
+use App\Models\Integracioneswebhook;
 use App\Http\Controllers\ChatController;
 use Kerox\Messenger\Messenger;
 

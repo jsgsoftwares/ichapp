@@ -20,9 +20,12 @@ class CreateSubscripcionsTable extends Migration
             $table->unsignedInteger('plan_id');
             $table->foreign('plan_id')->references('id')->on('plans');
             $table->dateTime('started_at');
-            $table->dateTime('finish_at');
+            $table->date('finish_at')->nullable();
+            $table->integer('migrate')->default(0);
+            $table->dateTime('migrate_at')->nullable();
+            $table->string('subscription_id')->nullable();
             $table->dateTime('renewal_cancelled_at')->nullable();
-            
+           
 
             $table->timestamps();
         });
